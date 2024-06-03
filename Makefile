@@ -6,7 +6,7 @@
 #    By: sklaps <sklaps@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/11 16:45:37 by sklaps            #+#    #+#              #
-#    Updated: 2024/04/17 15:30:35 by sklaps           ###   ########.fr        #
+#    Updated: 2024/06/03 16:56:45 by sklaps           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,12 @@ SOURCES = \
 		ft_substr.c \
 		ft_striteri.c \
 		ft_strdup.c \
-		ft_calloc.c 
+		ft_calloc.c \
+		ft_letters.c \
+		ft_numbers.c \
+		ft_printf.c \
+		get_next_line.c \
+		get_next_line_utils.c
 BSOURCES = \
 	ft_lstnew.c \
 	ft_lstadd_front.c \
@@ -65,7 +70,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) $(BOBJECTS)
 		   ar -rcs $@ $?
 
 bonus: $(OBJECTS) $(BOBJECTS)
@@ -75,7 +80,7 @@ bonus: $(OBJECTS) $(BOBJECTS)
 		$(CC) -c $(CFLAGS) $?
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(BOBJECTS)
 
 fclean:	clean
 	rm -f $(NAME)
